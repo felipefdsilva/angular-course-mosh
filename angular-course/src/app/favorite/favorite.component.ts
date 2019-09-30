@@ -1,20 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
 	selector: 'favorite',
 	templateUrl: `./favorite.component.html`,
-	styleUrls: ['./favorite.component.css']
+	styleUrls: ['./favorite.component.css'],
+	encapsulation: ViewEncapsulation.ShadowDom
 })
-export class FavoriteComponent implements OnInit{
-	constructor () { }
+export class FavoriteComponent {
+	@Output('change') click = new EventEmitter();
 
 	@Input('isFavorite') isSelected: boolean;
 
 	onClick(){
 		this.isSelected = !this.isSelected;
+		this.click.emit({newValue: this.isSelected});
 	}
-
-	ngOnInit() {
-
-	}
+}
+export interface FavoriteChangedEventArgs {
+	newValue: boolean;
 }

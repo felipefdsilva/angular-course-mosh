@@ -6,12 +6,18 @@ import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { PanelComponent } from './panel/panel.component';
+import { LikeComponent } from './like/like.component';
+import { InputFormatDirective } from './input-format.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    PanelComponent,
+    LikeComponent,
+    InputFormatDirective
   ],
   imports: [
     BrowserModule,
